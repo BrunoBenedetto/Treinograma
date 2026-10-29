@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#151522" />
+  <title>Treinograma</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="app-shell">
+    <header class="hero">
+      <div class="brand-row">
+        <div class="brand-mark" aria-hidden="true">✓</div>
+        <div>
+          <p class="eyebrow">Sua semana organizada</p>
+          <h1>Treinograma</h1>
+        </div>
+      </div>
+      <div class="progress-copy">
+        <div>
+          <strong id="weekly-progress">0 de 0 concluídas</strong>
+          <span>Progresso da semana</span>
+        </div>
+        <div class="progress-ring" id="progress-ring" aria-label="0% concluído"><span id="progress-percent">0%</span></div>
+      </div>
+    </header>
+
+    <section class="content" aria-live="polite">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">TODOS OS DIAS</p>
+          <h2>Seu planejamento</h2>
+        </div>
+        <span class="task-count" id="task-count">0 tarefas</span>
+      </div>
+      <div class="task-list" id="task-list"></div>
+    </section>
+  </main>
+
+  <button class="fab" id="open-add" type="button" aria-label="Adicionar tarefa"><span>+</span> Nova tarefa</button>
+
+  <dialog id="task-dialog" class="task-dialog">
+    <form id="task-form" method="dialog">
+      <div class="dialog-head">
+        <div>
+          <p class="eyebrow" id="form-mode">NOVA TAREFA</p>
+          <h2 id="form-title">O que você vai fazer?</h2>
+        </div>
+        <button class="icon-button" type="button" id="close-dialog" aria-label="Fechar">×</button>
+      </div>
+      <label>
+        Título
+        <input id="task-title" name="title" placeholder="Ex.: Treino de pernas" required maxlength="60" autocomplete="off" />
+      </label>
+      <label>
+        Descrição <span class="optional">opcional</span>
+        <textarea id="task-description" name="description" placeholder="Adicione algum detalhe para lembrar depois" maxlength="180"></textarea>
+      </label>
+      <label>
+        Dia da semana
+        <select id="task-day" name="day" required>
+          <option value="0">Segunda-feira</option><option value="1">Terça-feira</option><option value="2">Quarta-feira</option>
+          <option value="3">Quinta-feira</option><option value="4">Sexta-feira</option><option value="5">Sábado</option><option value="6">Domingo</option>
+        </select>
+      </label>
+      <div class="form-actions">
+        <button type="button" class="button secondary" id="cancel-dialog">Cancelar</button>
+        <button type="submit" class="button primary" id="save-task">Salvar tarefa</button>
+      </div>
+    </form>
+  </dialog>
+
+  <template id="task-template">
+    <article class="task-card">
+      <button type="button" class="complete-button" aria-label="Marcar como concluída"><span>✓</span></button>
+      <div class="task-details">
+        <h3></h3><p></p>
+        <small class="task-day-tag"></small>
+      </div>
+      <div class="task-actions">
+        <button type="button" class="mini-action edit-action" aria-label="Editar tarefa">Editar</button>
+        <button type="button" class="mini-action delete-action" aria-label="Excluir tarefa">Excluir</button>
+      </div>
+    </article>
+  </template>
+  <script src="app.js"></script>
+</body>
+</html>
